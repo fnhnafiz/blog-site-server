@@ -9,10 +9,7 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 const corsOptions = {
-  origin: [
-    "http://localhost:5173",
-    "https://ephemeral-profiterole-ff69db.netlify.app",
-  ],
+  origin: ["http://localhost:5173", "https://blogvistaposting404.netlify.app"],
   credentials: true,
   optionalSuccessStatus: 200,
 };
@@ -61,7 +58,7 @@ async function run() {
     // Create JWT for user
     app.post("/jwt", async (req, res) => {
       const email = req.body;
-      console.log(email);
+
       // create token
       const token = jwt.sign(email, process.env.SECRET_KEY, {
         expiresIn: "365d",
